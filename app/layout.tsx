@@ -4,6 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.css";
 import { ModalProvider } from "@/providers/modal-provider";
+import prismaDb from "@/lib/prismadb";
 
 const inter = Inter({ subsets: ["latin"] });
 
