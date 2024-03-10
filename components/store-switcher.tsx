@@ -77,10 +77,26 @@ export default function StoreSwitcher({
             <CommandEmpty>No store found.</CommandEmpty>
             <CommandGroup heading="Stores">
               {formattedItems.map((store) => (
-                <CommandItem
+                // <CommandItem
+                //   key={store.value}
+                //   onSelect={() => onStoreSelect(store)}
+                //   className="text-sm"
+                // >
+                //   <Store className="mr-2 h-4 w-4" />
+                //   {store.label}
+                //   <Check
+                //     className={cn(
+                //       "ml-auto h-4 w-4",
+                //       currentStore?.value === store.value
+                //         ? "opacity-100"
+                //         : "opacity-0"
+                //     )}
+                //   />
+                // </CommandItem>
+                <Button
                   key={store.value}
-                  onSelect={() => onStoreSelect(store)}
-                  className="text-sm"
+                  onClick={() => onStoreSelect(store)}
+                  className="text-sm text-black bg-white w-full hover:bg-lime-200 my-1"
                 >
                   <Store className="mr-2 h-4 w-4" />
                   {store.label}
@@ -92,7 +108,7 @@ export default function StoreSwitcher({
                         : "opacity-0"
                     )}
                   />
-                </CommandItem>
+                </Button>
               ))}
             </CommandGroup>
           </CommandList>
@@ -108,14 +124,15 @@ export default function StoreSwitcher({
                 <PlusCircle className="mr-2 h-5 w-5" />
                 Create Store
               </CommandItem> */}
-              <button
+              <Button
+                className="text-sm text-black bg-white w-full hover:bg-lime-200 my-1"
                 onClick={() => {
                   setOpen(false);
                   storeModal.onOpen();
                 }}
               >
                 Create Store
-              </button>
+              </Button>
             </CommandGroup>
           </CommandList>
         </Command>
